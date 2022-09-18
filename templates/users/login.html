@@ -1,0 +1,71 @@
+{% extends "base.html" %}
+
+{% block titulo %}
+Login
+{% endblock %}
+
+{% block contenido_que_cambia %}
+
+<section class=" text-center text-lg-start">
+    <style>
+        .rounded-t-5 {
+            border-top-left-radius: 0.5rem;
+            border-top-right-radius: 0.5rem;
+        }
+
+        @media (min-width: 992px) {
+            .rounded-tr-lg-0 {
+                border-top-right-radius: 0;
+            }
+
+            .rounded-bl-lg-5 {
+                border-bottom-left-radius: 0.5rem;
+            }
+        }
+    </style>
+    <div class="card mb-3">
+        <div class="row g-0 d-flex align-items-center">
+            <div class="col-lg-4 d-none d-lg-flex">
+                <img src="https://mdbootstrap.com/img/new/ecommerce/vertical/004.jpg" alt="Trendy Pants and Shoes"
+                    class="w-100 rounded-t-5 rounded-tr-lg-0 rounded-bl-lg-5" />
+            </div>
+            <div class="col-lg-8">
+                <div class="card-body py-5 px-md-5">
+
+                    <form action="" method="POST">
+                        {% csrf_token %}
+
+                        <p>Ingresa a tu cuenta </p>
+
+                        <div class="d-flex align-items-center justify-content-center pb-4">
+                            <table>
+
+                                {{form.as_table}}
+
+                            </table>
+                        </div>
+
+                        <div class="text-center pt-1 mb-5 pb-1">
+                            <p><button class="btn btn-primary btn-block fa-lg gradient-custom-2 mb-3" type="submit"
+                                    value="Iniciar sesion">Iniciar Sesion</button></p>
+                            <a class="text-muted" href="#!">¿Olvidaste tu contraseña?</a>
+                        </div>
+
+                        <div class="d-flex align-items-center justify-content-center pb-4">
+                            <p class="mb-0 me-2" style="margin-right: 2rem ;"> ¿No tienes cuenta? </p>
+                            <button class="btn btn-outline-danger">
+                                <a class="nav-link" href="/users/register/">Registrate</a>
+                            </button>
+                        </div>
+
+                    </form>
+
+                    <p style="color:red;">{{error}} </p>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Section: Design Block -->
+{% endblock %}

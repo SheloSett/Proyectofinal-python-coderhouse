@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block titulo %}
+CATEGORIAS
+{% endblock %}
+
+{% block contenido_que_cambia %}
+
+{% for category in categories %}
+
+<div class="row row-cols-1 row-cols-md-3 g-4">
+    <div class="col">
+      <div class="card">
+        {% if category.image %}
+        <img src="{{category.image.url}}" class="card-img-top" alt="Hollywood Sign on The Hill"/>
+        {% else %}
+        <img src="{{category.image.url}}" class="card-img-top" alt="Hollywood Sign on The Hill"/>
+        {% endif %}
+        <div class="card-body">
+          <h5 class="card-title">{{category.name}}</h5>
+          <p class="card-text">{{category.description}}</p>
+          <a href="#" class="btn btn-primary">Ver todo sobre {{category.name}}</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+ {% endfor %}
+
+{% endblock %}

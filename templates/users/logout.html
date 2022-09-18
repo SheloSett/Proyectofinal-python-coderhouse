@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% block titulo %}
+    Logout
+{% endblock %}
+
+{% block contenido_que_cambia %}
+
+
+<section id="hero" style="display:flex; align-items: center;
+justify-content: center;
+text-align: center;
+flex-direction: column;
+height: 90vh;
+color:rgb(226, 214, 214);
+background-image: linear-gradient(
+    0deg,
+    rgba(0,0,0,0.7),
+    rgba(0,0,0,0.7)
+)    
+,url('https://images.unsplash.com/photo-1560851240-099afcad338b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8YXBwbGUlMjBpbmN8ZW58MHx8MHx8&w=1000&q=80');
+background-repeat: no-repeat;
+background-size: cover;
+background-position: center center;">
+
+    <h1>CERRASTE SESION</h1>
+    <a href="/users/login/" class="btn btn-primary" style="margin:10px ;">Volver a ingresar </a>
+    <a href="/" class="btn btn-danger">Ir a inicio </a>
+
+</section>
+
+{% endblock %}

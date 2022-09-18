@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block titulo %}
+Productos
+{% endblock %}
+
+{% block contenido_que_cambia %}
+
+{% for product in products %}
+<div class="card" style="width: 18rem;">
+    {% if product.image %}
+    <img src="{{product.image.url}}" class="card-img-top">
+    {% else %}
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/No_image_available.svg/1024px-No_image_available.svg.png"
+        class="card-img-top" alt="...">
+    {% endif %}
+    <div class="card-body">
+        <h5 class="card-title">{{product.name}}</h5>
+        <p class="card-text">Precio: {{product.price}}</p>
+        <p class="card-text">Stock: {{product.stock}}</p>
+        <a href="#" class="btn btn-primary">Agregar al carro</a>
+        {% if request.user.is_superuser %}
+        <a href="/products/update-product/{{product.id}}" class="btn btn-primary">Editar</a>
+        <a href="/products/delete-product/{{product.id}}" class="btn btn-danger">Borrar</a>
+        {% endif %}
+    </div>
+</div>
+{% endfor %}
+
+{% endblock %}

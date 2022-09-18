@@ -1,0 +1,65 @@
+{% extends "base.html" %}
+
+{% block titulo %}
+Perfil 
+{% endblock %}
+
+{% block contenido_que_cambia %}
+
+<section class=" text-center text-lg-start">
+    <style>
+        .rounded-t-5 {
+            border-top-left-radius: 0.5rem;
+            border-top-right-radius: 0.5rem;
+        }
+
+        @media (min-width: 992px) {
+            .rounded-tr-lg-0 {
+                border-top-right-radius: 0;
+            }
+
+            .rounded-bl-lg-5 {
+                border-bottom-left-radius: 0.5rem;
+            }
+        }
+    </style>
+    <div class="card mb-3">
+        <div class="row g-0 d-flex align-items-center">
+            <div class="col-lg-4 d-none d-lg-flex">
+                <img src="https://mdbootstrap.com/img/new/ecommerce/vertical/004.jpg" alt="Trendy Pants and Shoes"
+                    class="w-100 rounded-t-5 rounded-tr-lg-0 rounded-bl-lg-5" />
+            </div>
+            <div class="col-lg-8">
+                <div class="card-body py-5 px-md-5">
+                    <h1>
+                        Perfil usuario de: {{request.user.username}}
+                    </h1>
+                    
+                    <p>
+                        <ul>
+                            <li>Usuario: {{request.user.username}}</li>
+                            <li>Nombre: {{request.user.first_name}}</li>
+                            <li>Apellido: {{request.user.last_name}}</li>
+                            <li>Email: {{request.user.email}}</li>
+                            <li>
+                                <p>Imagen:</p>
+                                {% if request.user.mas_datos_usuario.image %}
+                                <img src={{request.user.mas_datos_usuario.image.url}} alt="" height="200px">
+                                {% endif %}
+                            </li>
+                        </ul>
+                    </p>
+                    <p>
+                        <a href= "/users/update-usuario/">Editar mis datos</a>
+                    </p>
+
+                    <p style="color:red;">{{error}} </p>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}
+

@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block titulo %}
+    Lista de articulos
+{% endblock %}
+
+{% block contenido_que_cambia %}
+
+    {% for article in object_list %}
+      <div class="card border border-dark mb-3" style="max-width: 18rem;">
+        <div class="card-body text-dark">
+          <h5 class="card-title">{{article.title}}</h5>
+          <p class="card-text">{{article.description}}</p>
+        </div>
+        <a href="/noticias/detail-news/{{article.id}}/" class="btn btn-primary">Detalle</a>
+      </div>
+    
+    {% endfor %}
+
+
+{% endblock %}
